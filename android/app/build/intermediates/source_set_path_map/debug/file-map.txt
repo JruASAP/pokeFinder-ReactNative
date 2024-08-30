@@ -26,3 +26,4 @@ com.pokefinderreactnative.app-packageDebugResources-24 /home/jruasap/Documents/p
 com.pokefinderreactnative.app-merged_res-25 /home/jruasap/Documents/pokeFinderReactNative/android/app/build/intermediates/merged_res/debug
 com.pokefinderreactnative.app-debug-26 /home/jruasap/Documents/pokeFinderReactNative/android/app/src/debug/res
 com.pokefinderreactnative.app-main-27 /home/jruasap/Documents/pokeFinderReactNative/android/app/src/main/res
+com.pokefinderreactnative.app-packaged_res-28 /home/jruasap/Documents/pokeFinderReactNative/node_modules/react-native-sound/android/build/intermediates/packaged_res/debug

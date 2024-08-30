@@ -1,7 +1,0 @@
-#Mon Jul 01 17:49:39 EDT 2024
-base.1=/home/jruasap/Documents/pokeFinderReactNative/android/app/build/intermediates/global_synthetics_dex/release/classes.dex
-path.1=classes.dex
-base.0=/home/jruasap/Documents/pokeFinderReactNative/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
-renamed.1=classes2.dex
-renamed.0=classes.dex
-path.0=classes.dex

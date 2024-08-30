@@ -284,7 +284,6 @@ com.pokefinderreactnative:style/TextAppearance.AppCompat.Light.Widget.PopupMenu.
 com.pokefinderreactnative:string/abc_action_mode_done = 0x7f0d0003
 com.pokefinderreactnative:string/abc_action_menu_overflow_description = 0x7f0d0002
 com.pokefinderreactnative:string/abc_action_bar_home_description = 0x7f0d0000
-com.pokefinderreactnative:mipmap/ic_launcher_round = 0x7f0c0001
 com.pokefinderreactnative:mipmap/ic_launcher = 0x7f0c0000
 com.pokefinderreactnative:layout/support_simple_spinner_dropdown_item = 0x7f0b002c
 com.pokefinderreactnative:layout/select_dialog_singlechoice_material = 0x7f0b002b

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Image, Button, TextInput } from 'react-native';
+import Sound from 'react-native-sound';
 
 const App = () => {
   const [pokemon, setPokemon] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const soundRef = useRef(null);
 
   const fetchPokemon = async (id) => {
     try {
@@ -23,8 +25,38 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchPokemon(1); // Fetch Bulbasaur by default
+    fetchPokemon(1); 
   }, []);
+
+  useEffect(() => {
+    if (pokemon && pokemon.name) { 
+      soundRef.current = new Sound(
+        `https://pokemoncries.com/cries/${pokemon.name.toLowerCase()}.mp3`,
+        Sound.MAIN_BUNDLE,
+        (error) => {
+          if (error) {
+            console.error('Failed to load the sound:', error);
+          }
+        }
+      );
+
+      return () => {
+        if (soundRef.current) {
+          soundRef.current.release();
+        }
+      };
+    }
+  }, [pokemon.name]); 
+
+  const playCry = () => {
+    if (soundRef.current) {
+      soundRef.current.play((success) => {
+        if (!success) {
+          console.error('Sound playback failed');
+        }
+      });
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -47,6 +79,7 @@ const App = () => {
           <Text style={styles.name}>Name: {pokemon.name}</Text>
           <Text style={styles.id}>ID: {pokemon.id}</Text>
           <Text style={styles.type}>Type: {pokemon.types.map(type => type.type.name).join(', ')}</Text>
+          <Button title="Play Cry" onPress={playCry} />
         </View>
       )}
     </View>
@@ -56,7 +89,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#121212',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -64,13 +97,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#ffffff', 
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#ccc', 
     padding: 10,
     marginBottom: 10,
     width: '80%',
+    backgroundColor: '#333333', 
+    color: '#ffffff', 
   },
   pokemonInfo: {
     alignItems: 'center',
@@ -83,12 +119,15 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#ffffff', 
   },
   id: {
     fontSize: 16,
+    color: '#e0e0e0', 
   },
   type: {
     fontSize: 16,
+    color: '#e0e0e0', 
   },
 });
 
